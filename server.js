@@ -52,9 +52,6 @@ app.get('/collectibles/:index', (req, res) => {
 //type: Shows only shoes of the specified type.
 //No parameters: Responds with the full list of shoes.
 
-// NOT DONE
-
-// REVIEW 
 
 app.get('/shoes', (req, res) => {
   const minPrice = req.query['min-price'];
@@ -63,21 +60,10 @@ app.get('/shoes', (req, res) => {
 
   console.log(minPrice, maxPrice, type);
 
-  // shoes array 
-    const shoes = [
-      { name: "Birkenstocks", price: 50, type: "sandal" },
-      { name: "Air Jordans", price: 500, type: "sneaker" },
-      { name: "Air Mahomeses", price: 501, type: "sneaker" },
-      { name: "Utility Boots", price: 20, type: "boot" },
-      { name: "Velcro Sandals", price: 15, type: "sandal" },
-      { name: "Jet Boots", price: 1000, type: "boot" },
-      { name: "Fifty-Inch Heels", price: 175, type: "heel" }
-  ];
-
   const filteredShoes = shoes
-  .filter(shoe => !type || shoe.type === type) // this fill filter out by type
-  .filter(shoe => !minPrice || minPrice <= shoe.price) // this will filter out by minPrice
-  .filter(shoe => !maxPrice || maxPrice >= shoe.price) // this will filter out by maxPrice
-  // res send
+  .filter(shoe => !type || shoe.type === type) 
+  .filter(shoe => !minPrice || minPrice <= shoe.price) 
+  .filter(shoe => !maxPrice || maxPrice >= shoe.price) 
+
   res.send(filteredShoes);
 })
